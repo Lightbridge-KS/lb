@@ -11,3 +11,10 @@ pip install -e .
 ```zsh
 pip install .
 ```
+
+## Publish
+
+```shell
+twine upload --repository testpypi dist/*
+```
+
