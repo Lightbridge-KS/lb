@@ -70,7 +70,7 @@ classifiers = [
 
 
 [project.urls]
-# homepage = "https://github.com/posit-dev/great-tables"
+homepage = "https://github.com/Lightbridge-KS/lb"
 # documentation = "https://posit-dev.github.io/great-tables/"
 
 
