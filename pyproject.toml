@@ -1,0 +1,65 @@
+# Inspired by https://github.com/posit-dev/great-tables/blob/main/pyproject.toml
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+
+[tool.setuptools]
+include-package-data = true
+# This is already the default behaviour if you are using
+# pyproject.toml to configure your build.
+
+[tool.setuptools.packages.find]
+# All the following settings are optional:
+where = ["."]  # ["."] by default
+include = ["*"]  # ["*"] by default
+exclude = []  # empty by default
+namespaces = true  # true by default
+
+[project]
+name = "lb"
+description = "My Personal Python Package."
+readme = "README.md"
+keywords = []
+license.file = "LICENSE"
+dynamic = ["version"]
+authors = [
+    { name = "Kittipos Sirivongrungson", email = "ki11ip0.s.a.s@gmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "docx",
+    "pandas"
+]
+
+[project.optional-dependencies]
+# all = [
+#     "great_tables[extra]",
+#     "great_tables[dev]",
+# ]
+
+# extra = [
+#     "selenium>=4.18.1",
+#     "Pillow>=10.2.0",
+# ]
+
+# dev = [
+#     "great_tables[dev-no-pandas]",
+#     "pandas"
+# ]
+
+
+[project.urls]
+# homepage = "https://github.com/posit-dev/great-tables"
+# documentation = "https://posit-dev.github.io/great-tables/"
+
+
+# [tool.pytest.ini_options]
+# minversion = "6.0"
+# addopts = "-ra -q --cov=great_tables -m 'not no_pandas'"
+# asyncio_mode = "strict"
+# testpaths = [
+#     "tests"
+# ]
