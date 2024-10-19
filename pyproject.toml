@@ -1,7 +1,7 @@
 # Inspired by https://github.com/posit-dev/great-tables/blob/main/pyproject.toml
 
 [build-system]
-requires = ["setuptools", "wheel"]
+requires = ["setuptools",  "setuptools-scm>=8", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools_scm]
