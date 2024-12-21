@@ -1,85 +1,31 @@
-# Inspired by https://github.com/posit-dev/great-tables/blob/main/pyproject.toml
+[tool.poetry]
+name = "lb"
+version = "0.0.1"
+description = "Lightbridge-KS Personal Python Package"
+authors = ["Lightbridge-KS <ki11ip0.s.a.s@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/Lightbridge-KS/lb"
+repository = "https://github.com/Lightbridge-KS/lb"
+exclude = ["_dev", "_archive"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = "^2.0.0"
+python-docx = "^1.0.0"
+
 
 [build-system]
-requires = ["setuptools",  "setuptools-scm>=8", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
 
-[tool.setuptools_scm]
+[tool.poetry.group.dev.dependencies]
+pytest = "^6.0.0"
+mkdocs = "^1.6.1"
+mkdocs-material = "^9.5.49"
 
-[tool.setuptools]
-include-package-data = true
-# This is already the default behaviour if you are using
-# pyproject.toml to configure your build.
+[tool.poetry.group.docs]
+optional = true
 
-[tool.setuptools.packages.find]
-# All the following settings are optional:
-where = ["."]  # ["."] by default
-include = ["*"]  # ["*"] by default
-exclude = []  # empty by default
-namespaces = true  # true by default
-
-[project]
-name = "lb"
-description = "My Personal Python Package."
-readme = "README.md"
-license = {file = "LICENSE"}
-keywords = []
-dynamic = ["version"]
-authors = [
-    { name = "Kittipos Sirivongrungson", email = "ki11ip0.s.a.s@gmail.com" }
-]
-requires-python = ">=3.10"
-dependencies = [
-    "docx",
-    "pandas"
-]
-
-classifiers = [
-  # How mature is this project? Common values are
-  #   3 - Alpha
-  #   4 - Beta
-  #   5 - Production/Stable
-  "Development Status :: 3 - Beta",
-
-  # Indicate who your project is intended for
-  "Intended Audience :: Developers",
-  "Topic :: Software Development :: Build Tools",
-
-  # Pick your license as you wish (see also "license" above)
-  "License :: MIT License",
-
-  # Specify the Python versions you support here.
-  "Programming Language :: Python :: 3.10",
-]
-
-[project.optional-dependencies]
-# all = [
-#     "great_tables[extra]",
-#     "great_tables[dev]",
-# ]
-
-# extra = [
-#     "selenium>=4.18.1",
-#     "Pillow>=10.2.0",
-# ]
-
-# dev = [
-#     "great_tables[dev-no-pandas]",
-#     "pandas"
-# ]
-
-
-[project.urls]
-homepage = "https://github.com/Lightbridge-KS/lb"
-# documentation = "https://posit-dev.github.io/great-tables/"
-
-
-# [tool.pytest.ini_options]
-# minversion = "6.0"
-# addopts = "-ra -q --cov=great_tables -m 'not no_pandas'"
-# asyncio_mode = "strict"
-# testpaths = [
-#     "tests"
-# ]
-
-
+[tool.poetry.group.docs.dependencies]
+mkdocs = "*"
