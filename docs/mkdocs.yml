@@ -1,0 +1,21 @@
+site_name: lb
+site_description: Documentation for My Python Package `lb`
+site_author: Kittipos Sirivongrungson
+docs_dir: "docs/"
+
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - API Reference: api.md
+
+plugins:
+  - search
+
+markdown_extensions:
+  - codehilite
+  - admonition
+  - toc:
+      permalink: true
