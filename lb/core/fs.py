@@ -1,14 +1,9 @@
-
-
-# %%
 __all__ = ['list_dir', 'read_text_dir', 'read_text_file', 'write_text_file']
 
-# %% ../nbs/01_fs.ipynb 4
 import os
 from pathlib import Path
 
-# %% 
-def list_dir(directory = ".", pattern: str = "*", recursive = True) -> list[Path]:
+def list_dir(directory, pattern: str = "", recursive = True) -> list[Path]:
     path = Path(directory)
     if recursive:
         return list(path.rglob(pattern))
@@ -16,8 +11,26 @@ def list_dir(directory = ".", pattern: str = "*", recursive = True) -> list[Path
         return list(path.glob(pattern))
 
 
-# %% 
 def read_text_dir(dir_path):
+    """Read all text files in a directory and return their contents in a dictionary.
+
+    Parameters
+    ----------
+    dir_path : str or Path
+        Path to the directory containing text files.
+
+    Returns
+    -------
+    dict
+        Dictionary with filenames as keys and file contents as values, sorted by filename.
+
+    Raises
+    ------
+    FileNotFoundError
+        If the specified directory does not exist.
+    NotADirectoryError
+        If the specified path is not a directory.
+    """
     dir_path = Path(dir_path)
 
     # Validate that the path exists and is a directory
@@ -27,7 +40,7 @@ def read_text_dir(dir_path):
         raise NotADirectoryError(f"The path '{dir_path}' is not a directory.")
 
     # Get the list of files in the directory
-    file_ls = os.listdir(dir_path)
+    file_ls = [f for f in os.listdir(dir_path) if not f.startswith('.')] 
 
     # Construct full file paths
     path_ls = [dir_path / file for file in file_ls]
@@ -45,8 +58,22 @@ def read_text_dir(dir_path):
     return sorted_content_dict
 
 
-# %% 
 def read_text_file(file_path):    
+    """Read a text file and return its content as a string.
+
+    This function attempts to read a text file from the specified path using UTF-8 encoding.
+
+    Args:
+        file_path (str or Path): The path to the text file to be read.
+
+    Returns:
+        str: The content of the text file as a string if successful.
+        None: If the file is not found or an error occurs during reading.
+
+    Raises:
+        FileNotFoundError: If the specified file path does not exist.
+        Exception: For other possible errors during file reading operations.
+    """
     file_path = Path(file_path)
     try:
         # Open the text file in read mode
@@ -59,8 +86,23 @@ def read_text_file(file_path):
     except Exception as e:
         print(f"An error occurred: {e}")
 
-# %%
 def write_text_file(text, file_path):    
+    """Write text content to a file at the specified path.
+
+    This function takes a string of text and writes it to a file, creating the file if it
+    doesn't exist or overwriting it if it does. The file is written using UTF-8 encoding.
+
+    Args:
+        text (str): The text content to be written to the file.
+        file_path (str | Path): The path where the file should be created/written to.
+
+    Raises:
+        Exception: Any exception that occurs during file operations will be caught and printed.
+
+    Example:
+        >>> write_text_file("Hello World", "output.txt")
+        Text successfully written to output.txt
+    """
     file_path = Path(file_path)
     try:
         # Open the text file in write mode
@@ -70,4 +112,3 @@ def write_text_file(text, file_path):
         print(f"Text successfully written to {file_path}.")
     except Exception as e:
         print(f"An error occurred: {e}")
-
