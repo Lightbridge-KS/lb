@@ -1,5 +1,7 @@
 # Installation
 
+Install from [TestPyPi](https://test.pypi.org/project/lb/)
+
 To install the package:
 
 ```bash
