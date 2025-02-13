@@ -1,3 +1,6 @@
+# Sphinx
+/_build/
+*.DS_Store
 
 *.mypy_cache
 
