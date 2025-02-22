@@ -1,6 +1,7 @@
 __all__ = ['list_dir', 'read_text_dir', 'read_text_file', 'write_text_file']
 
 import os
+import pickle
 from pathlib import Path
 
 def list_dir(directory, pattern: str = "", recursive = True) -> list[Path]:
@@ -112,3 +113,40 @@ def write_text_file(text, file_path):
         print(f"Text successfully written to {file_path}.")
     except Exception as e:
         print(f"An error occurred: {e}")
+
+
+def write_pickle(obj, filename: str):
+    """
+    Write a Python object to a pickle file.
+
+    Parameters
+    ----------
+    obj : any
+        The Python object to save
+    filename : str
+        Path to the pickle file (e.g., 'data.pkl')
+
+    Returns
+    -------
+    None
+    """
+    with open(filename, 'wb') as file:  # 'wb' for write binary mode
+        pickle.dump(obj, file)
+
+# Read the object from the file
+def read_pickle(filename: str):
+    """
+    Read a Python object from a pickle file.
+
+    Parameters
+    ----------
+    filename : str
+        Path to the pickle file (e.g., 'data.pkl')
+
+    Returns
+    -------
+    any
+        The loaded Python object
+    """
+    with open(filename, 'rb') as file:  # 'rb' for read binary mode
+        return pickle.load(file)
